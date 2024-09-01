@@ -12,6 +12,7 @@ interface CardGameProps {
 
 export default function Card(props: CardGameProps) {
   const flipCard = useCardGameStore((state) => state.flipCard);
+  const countMove = useCardGameStore((state) => state.countMove);
   const cardClassNames = `cardgame rounded ${props.flip ? "flipped" : ""}`;
   return (
     <CardShadcn
@@ -23,11 +24,11 @@ export default function Card(props: CardGameProps) {
             ...props,
             flip: true,
           });
+          countMove();
         }
       }}
     >
       <div className="cardgame-inner">
-        <span>&#ud83c&#udf0d</span>
         <div className="cardgame-back flex items-center">
           {"This is a cover"}
         </div>

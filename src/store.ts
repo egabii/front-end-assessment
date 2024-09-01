@@ -10,15 +10,23 @@ export interface Card {
 
 interface CardGameStore {
   cards: Card[];
+  moves: number;
   flipCard: (selectdCard: Card) => void;
   matchCard: (selectdCard: Partial<Card>, flippedCard: Partial<Card>) => void;
   resetGame: () => void;
+  countMove: () => void;
 }
 
 const getFlippedCards = (cards: Card[]) => cards.filter((card) => card.flip);
 
 const useCardGameStore = create<CardGameStore>((set, get) => ({
   cards: generateCards(),
+  moves: 0,
+  countMove: () => {
+    set((state) => ({
+      moves: state.moves + 1,
+    }));
+  },
   matchCard: (selectedCard: Partial<Card>, flippedCard: Partial<Card>) => {
     if (selectedCard.label === flippedCard.label) {
       set((state) => {
@@ -68,7 +76,7 @@ const useCardGameStore = create<CardGameStore>((set, get) => ({
       });
     }
   },
-  resetGame: () => set({ cards: generateCards() }),
+  resetGame: () => set({ cards: generateCards(), moves: 0 }),
 }));
 
 export default useCardGameStore;
