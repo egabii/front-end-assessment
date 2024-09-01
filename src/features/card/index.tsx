@@ -27,6 +27,7 @@ export default function Card(props: CardGameProps) {
       }}
     >
       <div className="cardgame-inner">
+        <span>&#ud83c&#udf0d</span>
         <div className="cardgame-back flex items-center">
           {"This is a cover"}
         </div>
