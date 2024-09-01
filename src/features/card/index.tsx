@@ -1,42 +1,43 @@
-import {
-  Card as CardShadcn,
-  CardContent as CardContentShadcn,
-} from "@/ui/card";
+import { Card as CardShadcn } from "@/ui/card";
 import useCardGameStore from "@/store";
+import "./card.css";
 
-type CardGameProps = {
+interface CardGameProps {
   value: string;
-  label?: string;
-  cover?: string;
-  facedown: boolean;
-  disabled: boolean;
-};
+  label: string;
+  cover: string;
+  flip: boolean;
+  matched: boolean;
+}
 
 export default function Card(props: CardGameProps) {
   const flipCard = useCardGameStore((state) => state.flipCard);
-  const cardClassNames = `rounded ${props.disabled ? "opacity-5" : ""}`;
+  const cardClassNames = `cardgame rounded ${props.flip ? "flipped" : ""}`;
   return (
     <CardShadcn
       className={cardClassNames}
       onClick={() => {
-        if (!props.disabled && props.facedown) {
+        if (!props.matched && !props.flip) {
+          // Revisit this issue, it shouldn't force to arrange all object if flipCard recieves a partial object
           flipCard({
-            value: props.value,
-            disabled: false,
-            facedown: !props.facedown,
+            ...props,
+            flip: true,
           });
         }
       }}
     >
-      <CardContentShadcn>
-        {props.facedown ? (
-          <p className="flex items-center">
-            {props.cover ?? "This is a cover"}
-          </p>
-        ) : (
-          <p className="flex items-center">{props.label ?? props.value}</p>
-        )}
-      </CardContentShadcn>
+      <div className="cardgame-inner">
+        <div className="cardgame-back flex items-center">
+          {"This is a cover"}
+        </div>
+        <div
+          className={`cardgame-front flex items-center ${
+            props.matched ? "bg-lime-500" : ""
+          }`}
+        >
+          {props.label ?? props.value}
+        </div>
+      </div>
     </CardShadcn>
   );
 }
