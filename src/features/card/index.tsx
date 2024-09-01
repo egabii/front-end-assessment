@@ -13,10 +13,9 @@ interface CardGameProps {
 export default function Card(props: CardGameProps) {
   const flipCard = useCardGameStore((state) => state.flipCard);
   const countMove = useCardGameStore((state) => state.countMove);
-  const cardClassNames = `cardgame rounded ${props.flip ? "flipped" : ""}`;
   return (
     <CardShadcn
-      className={cardClassNames}
+      className={`cardgame rounded ${props.flip ? "flipped" : ""}`}
       onClick={() => {
         if (!props.matched && !props.flip) {
           // Revisit this issue, it shouldn't force to arrange all object if flipCard recieves a partial object

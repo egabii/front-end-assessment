@@ -1,6 +1,23 @@
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import { ReactNode } from "react";
+import "./ui.css";
 
-export default function Footer() {
+interface HeaderProps {
+  children: ReactNode;
+}
+
+export const Header = ({ children }: HeaderProps) => {
+  return (
+    <header className="header">
+      <div className="logo">
+        <h1 className="text-2xl">MyApp</h1>
+      </div>
+      {children}
+    </header>
+  );
+};
+
+export const Footer = () => {
   return (
     <footer className="flex flex-wrap pt-4 pb-4 flex-col bg-slate-800 container mx-auto px-4 max-w-3xl rounded ">
       <p className="text-white text-center">Developed by Gabriel Muller</p>
@@ -14,4 +31,6 @@ export default function Footer() {
       </p>
     </footer>
   );
-}
+};
+
+export default { Footer, Header };
