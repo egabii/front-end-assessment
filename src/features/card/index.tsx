@@ -36,7 +36,7 @@ export default function Card(props: CardGameProps) {
             props.matched ? "bg-lime-500" : ""
           }`}
         >
-          {props.label ?? props.value}
+          {props.label}
         </div>
       </div>
     </CardShadcn>
