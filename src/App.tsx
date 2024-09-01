@@ -1,10 +1,16 @@
-import './App.css'
-import Header from './components/header'
+import "./App.css";
+import Header from "@/components/header";
+import Footer from "./components/footer";
+import CardGrid from "@/features/card-grid";
 
 const App = () => (
-    <>
-      <Header />
-    </>
-)
+  <>
+    <Header />
+    <section className="container mx-auto px-4 pb-5 max-w-3xl mt-10">
+      <CardGrid />
+    </section>
+    <Footer />
+  </>
+);
 
-export default App
+export default App;
