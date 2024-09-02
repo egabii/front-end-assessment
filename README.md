@@ -59,9 +59,10 @@ We will be evaluating your solution based on the following criteria
 - Efficiency and readability of your code
 - Follow appropriate react patterns
 
-## Runing Instruccions:
+## Running Instructions:
 
 Main scripts:
 
+- `npm install`: install dependencies
 - `npm start`: run localhost
 - `npx playwright test`: run test
