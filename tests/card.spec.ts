@@ -35,12 +35,9 @@ test("resetting game", async ({ page }) => {
   await page.locator("div.cardgame:nth-child(1)").click();
 
   // card has flipped and it is face up
-  await expect(
-    page.locator(
-      "div.cardgame:nth-child(1) > div.cardgame-inner div.cardgame-front"
-    )
-  ).toBeVisible();
-  await page.locator("div.cardgame:nth-child(1)").click();
+  await expect(page.locator("div.cardgame:nth-child(1)")).toHaveClass(
+    /flipped/
+  );
 
   // click in reset button
   await page.getByText("Reset Button").click({ force: true });
