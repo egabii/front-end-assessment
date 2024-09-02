@@ -38,7 +38,8 @@ export default function WinnerModal() {
                           }}
                         />
                       }
-                      . Please, consider this assestment for next stage &#9824;
+                      . Do you like it? Please, consider this assestment for
+                      next stage &#9824;
                     </p>
                     <p className="text-sm text-gray-500">
                       Do you want to play again?
