@@ -27,7 +27,6 @@
 
   /* Style the front side (fallback if image is missing) */
 .cardgame-front {
-  background-color: #bbb;
   color: black;
   transform: rotateY(180deg);
 }

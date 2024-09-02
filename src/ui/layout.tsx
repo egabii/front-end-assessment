@@ -10,7 +10,7 @@ export const Header = ({ children }: HeaderProps) => {
   return (
     <header className="header">
       <div className="logo">
-        <h1 className="text-2xl">MyApp</h1>
+        <h1 className="text-2xl">Memory Card</h1>
       </div>
       {children}
     </header>

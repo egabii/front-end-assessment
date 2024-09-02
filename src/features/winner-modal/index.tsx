@@ -3,14 +3,12 @@ import { Button } from "@/ui/button";
 import useCardGameStore from "@/store";
 
 import { RocketIcon, HeartFilledIcon } from "@radix-ui/react-icons";
-// import { useState } from "react";
 
 export default function WinnerModal() {
   const AllmatchedCards = useCardGameStore((state) =>
     state.cards.every((card) => card.matched)
   );
   const resetGame = useCardGameStore((state) => state.resetGame);
-  // const [show, setShow] = useState(cards.every((card) => card.matched));
   return (
     <>
       {AllmatchedCards && (
@@ -40,7 +38,7 @@ export default function WinnerModal() {
                           }}
                         />
                       }
-                      . Please, consider this assestment for next stage :pray:
+                      . Please, consider this assestment for next stage &#9824;
                     </p>
                     <p className="text-sm text-gray-500">
                       Do you want to play again?

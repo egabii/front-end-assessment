@@ -54,11 +54,11 @@ export default function Card(props: CardGameProps) {
           )}
         </div>
         <div
-          className={`cardgame-front flex items-center justify-center text-3xl ${
-            props.matched ? "bg-lime-500" : ""
+          className={`cardgame-front flex items-center justify-center text-4xl ${
+            props.matched ? "bg-lime-500" : "bg-lime-100"
           }`}
         >
-          {props.label}
+          {String.fromCharCode(parseInt(props.label))}
         </div>
       </div>
     </CardShadcn>
